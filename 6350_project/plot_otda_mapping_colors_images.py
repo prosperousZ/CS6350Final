@@ -23,8 +23,8 @@ def minmax(img):
     return np.clip(img, 0, 1)
 
 
-I1 = plt.imread('ocean_day.jpg').astype(np.float64) / 256
-I2 = plt.imread('ocean_sunset.jpg').astype(np.float64) / 256
+I1 = plt.imread('ocean_day1.jpg').astype(np.float64) / 256
+I2 = plt.imread('ocean_sunset1.jpg').astype(np.float64) / 256
 
 X1 = im2mat(I1)
 X2 = im2mat(I2)
