@@ -22,9 +22,16 @@ def mat2im(X, shape):
 def minmax(img):
     return np.clip(img, 0, 1)
 
+userinput= input("please enter ocean or test ")
+if(userinput == 'ocean'):
+     
+    I1 = plt.imread('image/ocean_day1.jpg').astype(np.float64) / 256
+    I2 = plt.imread('image/ocean_sunset1.jpg').astype(np.float64) / 256
+if(userinput == 'test'):
+     
+    I1 = plt.imread('image/test1.jpg').astype(np.float64) / 256
+    I2 = plt.imread('image/test2.jpg').astype(np.float64) / 256
 
-I1 = plt.imread('ocean_day1.jpg').astype(np.float64) / 256
-I2 = plt.imread('ocean_sunset1.jpg').astype(np.float64) / 256
 
 X1 = im2mat(I1)
 X2 = im2mat(I2)
