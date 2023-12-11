@@ -8,18 +8,22 @@ import ot
 
 rng = np.random.RandomState(42)
 
+
 def im2mat(img):
     """Converts and image to matrix (one pixel per line)"""
     return img.reshape((img.shape[0] * img.shape[1], img.shape[2]))
+
 
 def mat2im(X, shape):
     """Converts back a matrix to an image"""
     return X.reshape(shape)
 
+
 def minmax(img):
     return np.clip(img, 0, 1)
 
-I1 = plt.imread( 'ocean_day.jpg').astype(np.float64) / 256
+
+I1 = plt.imread('ocean_day.jpg').astype(np.float64) / 256
 I2 = plt.imread('ocean_sunset.jpg').astype(np.float64) / 256
 
 X1 = im2mat(I1)
@@ -34,6 +38,7 @@ Xs = X1[idx1, :]
 Xt = X2[idx2, :]
 
 # Domain adaptation for pixel distribution transfer
+
 # EMDTransport
 ot_emd = ot.da.EMDTransport()
 ot_emd.fit(Xs=Xs, Xt=Xt)
@@ -59,7 +64,6 @@ ot_mapping_gaussian.fit(Xs=Xs, Xt=Xt)
 
 X1tn = ot_mapping_gaussian.transform(Xs=X1)  # use the estimated mapping
 Image_mapping_gaussian = minmax(mat2im(X1tn, I1.shape))
-
 # Plot original images
 
 plt.figure(1, figsize=(6.4, 3))
@@ -73,7 +77,6 @@ plt.imshow(I2)
 plt.axis('off')
 plt.title('Image 2')
 plt.tight_layout()
-
 
 # Plot pixel values distribution
 plt.figure(2, figsize=(6.4, 5))
@@ -92,8 +95,6 @@ plt.xlabel('Red')
 plt.ylabel('Blue')
 plt.title('Image 2')
 plt.tight_layout()
-
-# Plot transformed images
 
 plt.figure(3, figsize=(10, 5))
 
