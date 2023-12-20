@@ -10,5 +10,5 @@ Corresponding to our report:<br />
 2. Session 3 in the folder "barycenter"<br />
 3. Session 5 in the folder "wGAN"<br />
 
-Again, all you need to run is "open the python file, then click run, all the results will show up"<br />
+Again, all you need to run is "open the python file, then click run, all the results will show up", one python file correspond to one experience.<br />
 
